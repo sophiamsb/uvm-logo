@@ -9,6 +9,7 @@ var moveX = undefined;
 var moveY = undefined;
 var timeout;
 
+
 /*
 viewport size
 */
@@ -41,9 +42,20 @@ var toBlob2 = function () {
 };
 
 /*
+pause animation path on mousestop 
+*/
+function mouseStopped(){                                
+  mouseMoveText.textContent = "mouse stopped";
+  blob1.stop(); 
+  blob2.stop(); 
+}
+
+
+/*
 animation path on mousemove 
 */
 window.addEventListener("mousemove", (event) => {
+
   moveX = event.clientX;
   moveY = event.clientY;
   mousePos = { x: moveX, y: moveY };
@@ -58,9 +70,7 @@ window.addEventListener("mousemove", (event) => {
     mouseDirText.textContent = "left";
   }
   mouseMoveText.textContent = "mouse moving";
-  timeout = setTimeout(mouseStopped, 60000);
-
-
+  timeout = setTimeout(mouseStopped, 300);
 });
 
 window.addEventListener(
@@ -71,6 +81,3 @@ window.addEventListener(
   true
 );
 
-function mouseStopped(){                                
-  mouseMoveText.textContent = "mouse stopped";
-}
