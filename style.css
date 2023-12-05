@@ -1,39 +1,41 @@
-
 @media only screen and (max-width: 600px) {
-    svg {
-        height:15vh;
-    }
+  svg {
+    height: 15vh !important;
   }
+}
+
+html {
+  overflow-x: hidden;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  align-items: center;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
 
 .logo {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap:.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 svg {
-    width: auto;
-    height:20vh;
-}
-
-body {
-    width:100vw;
-    height:100vh;
-    display:grid;
-    align-items: center;
-    overflow-x: hidden;
-    margin:0;
-    padding:0;
+  width: auto;
+  height: 20vh;
 }
 
 main {
-    display: flex;
-    justify-content: center;
-    width:auto;
-    height:auto;
+  display: flex;
+  justify-content: center;
+  width: auto;
+  height: auto;
 }
 
 p {
-    width: fit-content;
+  width: fit-content;
 }

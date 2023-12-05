@@ -33,13 +33,13 @@ easingElastic = mina.elastic;
 animation path
 */
 var toBlob1 = function () {
-  blob1.animate({ d: blob2Points }, speed, easingBounce);
+  blob1.animate({ d: blob2Points }, speed, easingElastic);
 };
 var toBlob2 = function () {
   blob1.animate({ d: blob5Points }, speed, easingElastic);
 };
 var toBlob3 = function () {
-  blob1.animate({ d: blob3Points }, speed, easingBounce);
+  blob1.animate({ d: blob3Points }, speed, easingElastic);
 };
 var toBlob4 = function () {
   blob1.animate({ d: blob4Points }, speed, easingElastic);
