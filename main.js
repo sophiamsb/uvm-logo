@@ -25,7 +25,7 @@ var blob3Points = blob3.node.getAttribute("d");
 var blob4Points = blob4.node.getAttribute("d");
 var blob5Points = blob5.node.getAttribute("d");
 // var speed = 250;
-var speed= 1000;
+var speed= 1500;
 easingBounce = mina.bounce;
 easingElastic = mina.elastic;
 
