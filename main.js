@@ -18,27 +18,31 @@ var blob1 = Snap.select("#blob1");
 var blob2 = Snap.select("#blob2");
 var blob3 = Snap.select("#blob3");
 var blob4 = Snap.select("#blob4");
+var blob5 = Snap.select("#blob5");
 var blob1Points = blob1.node.getAttribute("d");
 var blob2Points = blob2.node.getAttribute("d");
 var blob3Points = blob3.node.getAttribute("d");
 var blob4Points = blob4.node.getAttribute("d");
-var speed = 500;
-easing = mina.linear;
+var blob5Points = blob5.node.getAttribute("d");
+// var speed = 250;
+var speed= 1000;
+easingBounce = mina.bounce;
+easingElastic = mina.elastic;
 
 /*
 animation path
 */
 var toBlob1 = function () {
-  blob1.animate({ d: blob2Points }, speed, easing);
+  blob1.animate({ d: blob2Points }, speed, easingBounce);
 };
 var toBlob2 = function () {
-  blob1.animate({ d: blob1Points }, speed, easing);
+  blob1.animate({ d: blob5Points }, speed, easingElastic);
 };
 var toBlob3 = function () {
-  blob1.animate({ d: blob3Points }, speed, easing);
+  blob1.animate({ d: blob3Points }, speed, easingBounce);
 };
 var toBlob4 = function () {
-  blob1.animate({ d: blob4Points }, speed, easing);
+  blob1.animate({ d: blob4Points }, speed, easingElastic);
 };
 
 
