@@ -20,6 +20,9 @@ body {
     height:100vh;
     display:grid;
     align-items: center;
+    overflow-x: hidden;
+    margin:0;
+    padding:0;
 }
 
 main {
