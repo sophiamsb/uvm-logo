@@ -1,7 +1,9 @@
-/* path  {
- transition: linear 5s;
-} */
 
+@media only screen and (max-width: 600px) {
+    svg {
+        height:15vh;
+    }
+  }
 
 .logo {
     display: flex;
