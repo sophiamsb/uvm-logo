@@ -1,11 +1,10 @@
 /*
 mouse position & direction
 */
-var xDirection = undefined;
-var yDirection = undefined;
-var oldX = 0;
-var oldY = 0;
+const lastPoint = {x: null, y: null}
+const mouseDirText = document.getElementById("mouse-dir");
 window.addEventListener("mousemove", getMouseDirection, false);
+
 
 /*
 snap svg plugin
@@ -43,29 +42,48 @@ var toBlob4 = function () {
 };
 
 
+// a function to recalculate the canvas offsets
+function reOffset(){
+  svg.getBoundingClientRect();
+  offsetX=svg.left;
+  offsetY=svg.top;        
+}
+
+// listen for window resizing (and scrolling) events
+//     and then recalculate the canvas offsets
+window.onscroll=function(e){ reOffset(); }
+window.onresize=function(e){ reOffset(); }
 
 function getMouseDirection(e) {
+
   //deal with the horizontal case
-  if (oldX < e.pageX) {
-      xDirection = "right";
+  if (e.clientX > lastPoint.x) {
       toBlob1();
-  } else {
-      xDirection = "left";
+      mouseDirText.textContent = "right";
+  } else if (e.clientX < lastPoint.x ) {
       toBlob2();
+      mouseDirText.textContent = "left";
   }
 
   //deal with the vertical case
-  if (oldY < e.pageY) {
-      yDirection = "down";
+  if ( e.clientY > lastPoint.y){
       toBlob3();
-  } else if (oldY > e.pageY) {
-      yDirection = "up";
+      mouseDirText.textContent = "down";
+  } else  if ( e.clientY < lastPoint.y ){
       toBlob4();
+      mouseDirText.textContent = "up";
   }
 
-  oldX = e.pageX;
-  oldY = e.pageY;
+  /* 
+    here you can apply the transformations you need to, 
+    then update the cursor position tracker for the 
+    next iteration
+  */
 
+  lastPoint.x = e.clientX
+  lastPoint.y = e.clientY
+
+ 
 
 }
 
