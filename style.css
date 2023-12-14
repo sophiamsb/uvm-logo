@@ -24,12 +24,14 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   gap: 0.5rem;
 }
 
 svg {
   width: auto;
-  height: 20vh;
+  height: 40vh;
+  /* outline: 1px solid; */
 }
 
 main {
@@ -43,4 +45,8 @@ p {
   width: fit-content;
 }
 
+
+#blobs {
+  height: 44vh;
+}
 
