@@ -4,17 +4,24 @@ mouse position & direction
 const lastPoint = { x: null, y: null };
 var isOnSvg = false;
 const mouseDirText = document.getElementById("mouse-dir");
-window.addEventListener("mousemove", getMouseDirection, false);
-document.getElementById("v").addEventListener("mouseover", function () {
-  isOnSvg = true;
-});
-document.getElementById("v").addEventListener("mouseout", function () {
-  isOnSvg = false;
-});
 let oldValue = 0;
 let newValue = 0;
 
-window.addEventListener("scroll", animOnScroll, false);
+
+if (window.matchMedia("(min-width: 400px)").matches) {
+  /* the viewport is at least 400 pixels wide */
+  window.addEventListener("mousemove", getMouseDirection, false);
+  document.getElementById("v").addEventListener("mouseover", function () {
+    isOnSvg = true;
+  });
+  document.getElementById("v").addEventListener("mouseout", function () {
+    isOnSvg = false;
+  });
+  window.addEventListener("scroll", animOnScroll, false);
+} else {
+ animLoop();
+ console.log('mobile detected')
+}
 
 /*
 snap svg plugin
@@ -97,17 +104,16 @@ function getMouseDirection(e) {
 function animOnScroll() {
   newValue = window.scrollY;
   if (oldValue < newValue) {
-    callRandomFunction() 
-  
+    callRandomFunction();
   } else if (oldValue > newValue) {
-    callRandomFunction() 
-
+    callRandomFunction();
   }
   oldValue = newValue;
 }
 
 function callRandomFunction() {
   var random = Math.floor(Math.random()*4);
+  console.log(random)
   switch(random){
   case 0:
      toBlob1();
@@ -115,7 +121,7 @@ function callRandomFunction() {
   case 1:
     toBlob2();
     break;
-  case 3:
+  case 2:
     toBlob3();
     break;
   case 3:
@@ -123,3 +129,15 @@ function callRandomFunction() {
     break;   
   }
 }
+
+function animLoop()  {
+  setInterval(function () {
+    callRandomFunction();
+    console.log("loop")
+    }, 1000);
+}
+
+function loopBlob(){
+  setInterval(animLoop, 1000);
+  }
+  
