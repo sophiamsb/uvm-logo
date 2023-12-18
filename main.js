@@ -7,14 +7,14 @@ const mouseDirText = document.getElementById("mouse-dir");
 window.addEventListener("mousemove", getMouseDirection, false);
 document.getElementById("v").addEventListener("mouseover", function () {
   isOnSvg = true;
-  console.log("on");
 });
 document.getElementById("v").addEventListener("mouseout", function () {
   isOnSvg = false;
-  console.log("out");
 });
-window.addEventListener("scroll", AnimateOnScroll, false);
+let oldValue = 0;
+let newValue = 0;
 
+window.addEventListener("scroll", animOnScroll, false);
 
 /*
 snap svg plugin
@@ -58,22 +58,6 @@ var toBlob4 = function () {
   blob1.animate({ d: blob4Points }, speed, easing);
 };
 
-// a function to recalculate the canvas offsets
-function reOffset() {
-  svg.getBoundingClientRect();
-  offsetX = svg.left;
-  offsetY = svg.top;
-}
-
-// listen for window resizing (and scrolling) events
-//     and then recalculate the canvas offsets
-window.onscroll = function (e) {
-  reOffset();
-};
-window.onresize = function (e) {
-  reOffset();
-};
-
 function getMouseDirection(e) {
   const rect = document.getElementById("v").getBoundingClientRect();
   if (isOnSvg === false) {
@@ -104,11 +88,18 @@ function getMouseDirection(e) {
     then update the cursor position tracker for the 
     next iteration
   */
+
   lastPoint.x = e.clientX - rect.left;
   lastPoint.y = e.clientY - rect.top;
 }
 
 
-function AnimateOnScroll() {
-  console.log(window.scrollY)
+function animOnScroll() {
+  newValue = window.scrollY;
+  if (oldValue < newValue) {
+    toBlob1();
+  } else if (oldValue > newValue) {
+    toBlob2();
+  }
+  oldValue = newValue;
 }
