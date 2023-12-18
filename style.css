@@ -1,23 +1,40 @@
 @media only screen and (max-width: 600px) {
   svg {
-    height: 15vh !important;
+    height: 26.5vh !important;
   }
   html, body {
     overflow: visible;
   }
 }
 
+@font-face {
+  font-family: "grotesk remix";
+  src: url(./assets/font/GroteskRemix-Regular.woff);
+}
+
 html {
   overflow-x: hidden;
 }
+
 body {
   width: 100vw;
   height: 100vh;
   display: grid;
-  align-items: center;
   overflow-x: hidden;
   margin: 0;
   padding: 0;
+  font-family: "grotesk remix";
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+}
+
+section {
+  padding: 1.1rem;
 }
 
 .logo {
@@ -34,19 +51,19 @@ svg {
   /* outline: 1px solid; */
 }
 
-main {
-  display: flex;
-  justify-content: center;
-  width: auto;
-  height: auto;
-}
-
 p {
   width: fit-content;
 }
-
 
 #blobs {
   height: 44vh;
 }
 
+
+.logo-caption{
+  font-size: 3.1rem;
+}
+
+.intro {
+  font-size: 1.5rem;
+}
