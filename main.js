@@ -13,6 +13,8 @@ document.getElementById("v").addEventListener("mouseout", function () {
   isOnSvg = false;
   console.log("out");
 });
+window.addEventListener("scroll", AnimateOnScroll, false);
+
 
 /*
 snap svg plugin
@@ -103,4 +105,9 @@ function getMouseDirection(e) {
   */
   lastPoint.x = e.clientX;
   lastPoint.y = e.clientY;
+}
+
+
+function AnimateOnScroll() {
+  console.log(window.scrollY)
 }
