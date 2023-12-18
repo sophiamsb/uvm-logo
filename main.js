@@ -75,21 +75,22 @@ window.onresize = function (e) {
 };
 
 function getMouseDirection(e) {
+  const rect = document.getElementById("v").getBoundingClientRect();
   if (isOnSvg === false) {
     //deal with the horizontal case
-    if (e.clientX > lastPoint.x) {
+    if ((e.clientX - rect.left) > lastPoint.x) {
       toBlob1();
       mouseDirText.textContent = "right";
-    } else if (e.clientX < lastPoint.x) {
+    } else if ((e.clientX - rect.left) < lastPoint.x) {
       toBlob2();
       mouseDirText.textContent = "left";
     }
 
     //deal with the vertical case
-    if (e.clientY > lastPoint.y) {
+    if ((e.clientY - rect.top) > lastPoint.y) {
       toBlob3();
       mouseDirText.textContent = "down";
-    } else if (e.clientY < lastPoint.y) {
+    } else if ((e.clientY - rect.top) < lastPoint.y) {
       toBlob4();
       mouseDirText.textContent = "up";
     }
@@ -103,8 +104,8 @@ function getMouseDirection(e) {
     then update the cursor position tracker for the 
     next iteration
   */
-  lastPoint.x = e.clientX;
-  lastPoint.y = e.clientY;
+  lastPoint.x = e.clientX - rect.left;
+  lastPoint.y = e.clientY - rect.top;
 }
 
 
