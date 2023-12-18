@@ -97,9 +97,29 @@ function getMouseDirection(e) {
 function animOnScroll() {
   newValue = window.scrollY;
   if (oldValue < newValue) {
-    toBlob1();
+    callRandomFunction() 
+  
   } else if (oldValue > newValue) {
-    toBlob2();
+    callRandomFunction() 
+
   }
   oldValue = newValue;
+}
+
+function callRandomFunction() {
+  var random = Math.floor(Math.random()*4);
+  switch(random){
+  case 0:
+     toBlob1();
+      break;
+  case 1:
+    toBlob2();
+    break;
+  case 3:
+    toBlob3();
+    break;
+  case 3:
+    toBlob4();
+    break;   
+  }
 }
