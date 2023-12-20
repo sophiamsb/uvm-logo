@@ -1,17 +1,24 @@
 @media only screen and (max-width: 600px) {
   #u > svg {
-    width: 23vw !important;
+    width: 22vw !important;
     height: 100%; 
   }
   
   #v > svg{
-    width: 27vw !important;
+    width: 26vw !important;
     height: 105%;
   }
   
   #m > svg {
-    width: 41vw !important;
+    width: 40vw !important;
     height: 100%;
+  }
+  .logo-caption {
+    padding-right: .5rem !important;
+  }
+
+  .logo {
+    gap:.3rem !important;
   }
 
 }
@@ -47,6 +54,7 @@ main {
 .logo {
   width: 100%;
   display: flex;
+  gap:.9rem;
   justify-content: flex-start;
 }
 
@@ -56,17 +64,17 @@ main {
 }
 
 #u > svg {
-  width: 24vw;
+  width: 23.5vw;
   height: 100%; 
 }
 
 #v > svg{
-  width: 28vw;
+  width: 27.5vw;
   height: 105%;
 }
 
 #m > svg {
-  width: 423w;
+  width: 41.5vw;
   height: 100%;
 }
 
@@ -77,4 +85,8 @@ section {
 .intro {
   font-size: 1.5rem;
   width: 100%;
+}
+
+.logo-caption {
+  padding-right: 1rem;
 }
