@@ -47,7 +47,6 @@ main {
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: calc(100% -23rem);
   padding: 1rem;
 }
 
@@ -55,7 +54,7 @@ main {
   width: 100%;
   display: flex;
   gap:.9rem;
-  justify-content: flex-start;
+  justify-content: space-between;
 }
 
 .logo > div {
@@ -69,12 +68,12 @@ main {
 }
 
 #v > svg{
-  width: 27.5vw;
+  width: 28.5vw;
   height: 105%;
 }
 
 #m > svg {
-  width: 41.5vw;
+  width: 40vw;
   height: 100%;
 }
 
