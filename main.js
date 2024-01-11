@@ -41,7 +41,6 @@ var blob2Points = blob2.node.getAttribute("d");
 var blob3Points = blob3.node.getAttribute("d");
 var blob4Points = blob4.node.getAttribute("d");
 var blob5Points = blob5.node.getAttribute("d");
-// var speed = 250;
 var speed = 1000;
 easingBounce = mina.bounce;
 easing = mina.backout;
@@ -90,17 +89,13 @@ function getMouseDirection(e) {
     mouseDirText.textContent = "mouse over";
   }
 
-  /* 
-    here you can apply the transformations you need to, 
-    then update the cursor position tracker for the 
-    next iteration
-  */
-
   lastPoint.x = e.clientX - rect.left;
   lastPoint.y = e.clientY - rect.top;
 }
 
-
+/*
+animation on scroll
+*/
 function animOnScroll() {
   newValue = window.scrollY;
   if (oldValue < newValue) {
@@ -111,6 +106,9 @@ function animOnScroll() {
   oldValue = newValue;
 }
 
+/*
+loop animation
+*/
 function callRandomFunction() {
   var random = Math.floor(Math.random()*4);
   console.log(random)
@@ -139,5 +137,5 @@ function animLoop()  {
 
 function loopBlob(){
   setInterval(animLoop, 1000);
-  }
+}
   
