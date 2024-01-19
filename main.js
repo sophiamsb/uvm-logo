@@ -19,8 +19,7 @@ if (window.matchMedia("(min-width: 400px)").matches) {
   });
   window.addEventListener("scroll", animOnScroll, false);
 } else {
- animLoop();
- console.log('mobile detected')
+  return;
 }
 
 /*
@@ -128,14 +127,3 @@ function callRandomFunction() {
   }
 }
 
-function animLoop()  {
-  setInterval(function () {
-    callRandomFunction();
-    console.log("loop")
-    }, 1000);
-}
-
-function loopBlob(){
-  setInterval(animLoop, 1000);
-}
-  

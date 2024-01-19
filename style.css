@@ -89,3 +89,23 @@ section {
 .logo-caption {
   padding: 0 .1rem 0 .1rem;
 }
+
+.logo-mobile {
+  display:none;
+}
+
+@media (min-width: 400px) {
+   .logo , .logo-caption {
+     display: none;
+   }
+
+   .logo-mobile {
+    display: block;
+    width: 100%;
+   }
+   .logo-mobile > img {
+    width: 100%;
+    height:auto;
+   }
+
+}
