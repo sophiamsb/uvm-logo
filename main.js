@@ -18,9 +18,7 @@ if (window.matchMedia("(min-width: 400px)").matches) {
     isOnSvg = false;
   });
   window.addEventListener("scroll", animOnScroll, false);
-} else {
-  return;
-}
+} 
 
 /*
 snap svg plugin
